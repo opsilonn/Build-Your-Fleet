@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+img {
+    height: 300px;
+    width: 500px;
+    border-radius: 40px;
+}
+</style>
+
+<style>
+table
+{
+    margin-bottom: 150px;
+    border-collapse: collapse;
+    width: 70%;
+    max-width: 70%;
+}
+
+th, td
+{
+    color:rgba(255,255,255,1);
+    font-size: 28px;
+
+    padding: 20px;
+    border-bottom: 2px solid rgba(255,255,255,1);
+
+    text-align: center; 
+    vertical-align: middle;
+}
+tr:nth-child(odd)
+{
+    background-color: rgba(49,57,68,0.9);
+}
+tr:nth-child(even)
+{
+    background-color: rgba(34,42,53,0.9);
+}
+th
+{
+    background-color: rgba(79,87,98,0.9);
+}
+
+
+</style>
+</head>
+<body>
