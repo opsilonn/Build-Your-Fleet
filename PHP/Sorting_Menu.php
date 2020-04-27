@@ -17,18 +17,18 @@
 </style>
 
 <?php
-		 //SIGN IN / LOG IN / DISCONNECT BUTTON
+	//SIGN IN / LOG IN / DISCONNECT BUTTON
  	require 'Button_Connection.php';
 
 	echo "<br><br>";
 
-           // BUTTONS OF THE TITLE PAGE
+	// BUTTONS OF THE TITLE PAGE
 	require 'Button_Title.php';
 
-				// SORTING BUTTONS
+	// SORTING BUTTONS
 	require 'Button_Sorting.php'; 
 
-	        // NEW SPACESHIP BUTTON
+	// NEW SPACESHIP BUTTON
 	if(isset($_SESSION["_Is_Admin"]))
 	{
 	    if($_SESSION["_Is_Admin"] == 1) require 'Button_New_Spaceship.php';
@@ -38,74 +38,47 @@
 <br><br><br><br><br><br>
 
 
-<?php 
-	$index = 0;
+<?php
+	// import the templates for the stylized component
+	include 'Component_Templates.php';
 
-	if($_GET["Sort"] == 'Purpose')
+	// We declare the categories the user is allow to search by
+	$correctCategories = array("Franchise", "Purpose", "Spaceship_Size");
+
+	// If the category we search by isn't unauthorized :
+	// Display error message
+	if (!in_array($_GET["Sort"], $correctCategories) )
 	{
-		$A[0] = "Civil";
-		$A[1] = "Company";
-		$A[2] = "Military";
-		$A[3] = "Personal";
-		$A[4] = "Scientific";
-		$index = 5;
+		stylizedComponent("Sorry, but it seems you tried to access unauthorized data...");
 	}
-	else if($_GET["Sort"] == 'Spaceship_Size')
-	{
-		$A[0] = "Satellite";
-		$A[1] = "Individual Spaceship";
-		$A[2] = "Shuttle";
-		$A[3] = "Frigate";
-		$A[4] = "Cruiser";
-		$A[5] = "Space Station";
-		$index = 6;
-	}
+	// Otherwise : proceed with the sql query
 	else
 	{
+		// We do our SQL query
 		include("Database.php");
-
-		if($_GET["Sort"] == 'Franchise') $request = $DATABASE->query("SELECT DISTINCT Franchise FROM spaceship;");
-
+		$request = $DATABASE->query("SELECT DISTINCT " . $_GET["Sort"] . " FROM spaceship ORDER BY " . $_GET["Sort"] . ";");
+			
+		// We add all the unique values returned
 		$index = 0;
 		while($val = $request->fetch())
 		{
-			$A[$index] = $val[$_GET["Sort"]];
+			$result[$index] = $val[$_GET["Sort"]];
 			$index++;
 		}
-		sort($A);
-	}
 
-
-	for($i=0; $i < $index; $i++)
-	{
-		echo "
-		<div style=\"
-
-		font-family: Pikmin;
-		text-align: center;
-
-		font-size: 48px;
-		letter-spacing: 2px;
-		text-shadow: 3px 2px rgba(34,42,53,1);
-		color: rgba(255,255,255,1);
-		width: 700px;
-		margin-left: auto;
-		margin-right: auto;\">
-
-			<a style=\"text-decoration: none;\"
-			href=\"../PHP/Mainpage.php?Sort=".$_GET["Sort"]."&Search=".$A[$i]."\">
-				<div style=\"
-				background-color: rgba(34,42,53,0.9);
-		    	border:4px solid rgba(0,0,0,1);
-		    	border-radius:40px;
-		    	display:normal;
-		    	\">
-
-		    		".$A[$i]."
-		    	</div>
-	    	</a>
-
-		</div><br>";
+		// If there is 0 result : we display an error message
+		if($index == 0)
+		{
+			stylizedComponent("Sorry, but it seems we encountered an error with the database...");
+		}
+		// Otherwise : we display all the buttons
+		else
+		{
+			for($i=0; $i < $index; $i++)
+			{
+				stylizedComponentWithLink("../PHP/Mainpage.php?Sort=".$_GET["Sort"]."&Search=".$result[$i], $result[$i]);
+			}
+		}
 	}
 ?>
 

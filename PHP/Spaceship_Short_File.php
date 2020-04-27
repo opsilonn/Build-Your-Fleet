@@ -25,9 +25,9 @@
 	while($val = $request->fetch())
 	{
 		if(file_exists("../Pictures/Uploads/".$val["Spaceship_ID"].".jpg"))
-    	$fileName = "../Pictures/Uploads/".$val["Spaceship_ID"].".jpg";
+    		$fileName = "../Pictures/Uploads/".$val["Spaceship_ID"].".jpg";
 		else
-    	$fileName = "../Pictures/Under_Construction.png";
+    		$fileName = "../Pictures/Under_Construction.png";
 		echo "
 
 		<div style=\"
