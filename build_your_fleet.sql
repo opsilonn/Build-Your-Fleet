@@ -968,9 +968,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `Order_ID` mediumint(8) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT 'Primary Key, defines an Order''s instance',
   `Customer_ID` mediumint(8) UNSIGNED ZEROFILL NOT NULL,
   `Spaceship_ID` mediumint(8) UNSIGNED ZEROFILL NOT NULL,
-  `Cost` bigint(20) UNSIGNED NOT NULL,
+  `Amount` bigint(20) UNSIGNED NOT NULL,
   `Date` date NOT NULL,
-  `Description` tinytext NOT NULL,
   `Current_Status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0 = the order is being prepared; 1 = the order was sent; 2 = the order has been delivered',
   PRIMARY KEY (`Order_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

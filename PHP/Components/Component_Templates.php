@@ -41,7 +41,7 @@
     function stylizedComponentWithLink($path, $content)
     {
     echo "
-        <div style=\"
+        <div class=\"zoom\" style=\"
 
         font-family: Pikmin;
         text-align: center;
