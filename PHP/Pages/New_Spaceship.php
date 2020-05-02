@@ -27,27 +27,27 @@
 
 
 
-<link rel="icon" type="image/png" href="../Pictures/Icon.png"/>
-<link rel="stylesheet" href="../CSS/Background.css"/>
+<link rel="icon" type="image/png" href="../../Pictures/Icon.png"/>
+<link rel="stylesheet" href="../../CSS/allCSS.css"/>
 
-            <!-- TITLE OF THE PAGE -->
+<!-- TITLE OF THE PAGE -->
 <head>
     <meta charset="utf-8" />
     <title>Build Your Fleet - New Spaceship</title>
 </head>
 
 
-            <!-- BACKGROUND OF THE PAGE -->
+<!-- BACKGROUND OF THE PAGE -->
 <style>
     body, html
     {
-        background-image: url("../Pictures/Wallpaper_Form.jpg"); 
+        background-image: url("../../Pictures/Wallpaper_Form.jpg"); 
     }
 </style>
 
 
             <!-- BUTTON TO MAIN PAGE -->
-<?php require 'Button_Mainpage.php'; ?>
+<?php /* require '../../PHP/Components/Button_Mainpage.php'; */ ?>
 
 <br><br><br>
 
@@ -118,7 +118,7 @@
             style="width: 300px;
                 font: georgia;
                 font-size: 24px;"
-            name ="_Use"
+            name ="_Purpose"
             required>
                 <option value=1> Civil</option>
                 <option value=2> Company</option>  
@@ -126,13 +126,13 @@
                 <option value=4> Personal</option>
                 <option value=5> Scientific</option> 
             </select>
-            <strong><em> - Use</em></strong><br><br><br>
+            <strong><em> - Purpose</em></strong><br><br><br>
 
             <select
             style="width: 300px;
                 font: georgia;
                 font-size: 24px;"
-            name ="_Use"
+            name ="_Size"
             required>
                 <option value=1> Satellite</option> 
                 <option value=2> Individual Spaceship</option>

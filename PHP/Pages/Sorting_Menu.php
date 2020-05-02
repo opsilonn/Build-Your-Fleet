@@ -1,4 +1,4 @@
-<link rel="icon" type="image/png" href="../Pictures/Icon.png"/>
+<link rel="icon" type="image/png" href="../../Pictures/Icon.png"/>
 <link rel="stylesheet" href="../CSS/allCSS.css"/>
 
 <!-- TITLE OF THE PAGE -->
