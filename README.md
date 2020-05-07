@@ -7,8 +7,11 @@ During my semester abroad at MAHE (Manipal, India), we had to make a project in 
 Since I didn't want to make a basis project, like buy some items, or manage a library... I made a project where I buy some spaceships. Well, it ain't much, but it's honest work.
 
 
-There are a ot of unfinished stuff : you can order or add spaceships.
+There are a ot of unfinished stuff : you can't order or add spaceships.
 The login works (I think), but I'm not sure for the creation of User.
+
+
+Edit - april / may 2020 : I came back to upgrade this project. The organisation of the files was improved, the code is cleaner, and some features were implemented (sign in, edit / delete profile). Still, you can't buy spaceships yet...
 
 
 ## Authors
